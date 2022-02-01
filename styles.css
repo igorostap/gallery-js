@@ -1,0 +1,72 @@
+.shadowcss {}
+
+#showimage {
+    BORDER-RIGHT: black 2px solid;
+    BORDER-TOP: black 2px solid;
+    VISIBILITY: hidden;
+    BORDER-LEFT: black 2px solid;
+    BORDER-BOTTOM: black 2px solid;
+    POSITION: absolute
+}
+
+#dragbar {
+    CURSOR: pointer;
+    BACKGROUND-COLOR: #fff5f6;
+    min-width: 100px
+}
+
+#dragbar #closetext {
+    FONT-WEIGHT: bold;
+    MARGIN-RIGHT: 1px
+}
+
+
+
+
+@media screen and (min-width:1200px) {
+    .gallery__img {
+        display: none;
+    }
+    .gallery {
+        width: 1200px;
+        height: 430px;
+        margin-left: auto;
+        margin-right: auto;
+        background-image:
+            linear-gradient(to bottom,
+                #fff5f6 40%,
+                #fff 40%);
+    }
+
+   
+
+    .gallery__section1,
+    .gallery__section2,
+    .gallery__section3 {
+        display: flex;
+
+        height: 160px;
+    }
+
+    .gallery__section1 {
+        justify-content: center;
+    }
+
+    .gallery__section2 {
+        justify-content: space-between;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    .gallery__section3 {
+        justify-content: center;
+    }
+
+    
+
+    .gallery__image9 {
+        
+        margin-top: -160px;
+    }
+}
+   

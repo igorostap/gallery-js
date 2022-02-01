@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+          integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- Шрифты -->
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Titan+One&display=swap"
+              rel="stylesheet">
+               <link rel="stylesheet" href="./styles.css">
+    <title>Document</title>
+</head><body>
+    
+</body>
+    <style type="text/css">
+
+</STYLE>
+<script type="text/javascript">
+function updownshadow(){
+if (event.srcElement.effect=="popshadow"){
+shadowobj=event.srcElement
+if (event.type=="mousedown"){
+shadowobj.filters[0].color=shadowobj.mousedowncolor
+shadowobj.style.left=shadowobj.style.top=0
+}
+else if (event.type=="mouseout" && event.fromElement.effect=="popshadow" || event.type=="mouseup"){
+shadowobj.filters[0].color=shadowobj.mouseupcolor
+shadowobj.style.left=shadowobj.style.top=shadowobj.filters[0].OffX*(-1)
+}}}
+if (document.attachEvent){
+document.attachEvent("onmousedown", updownshadow)
+document.attachEvent("onmouseup", updownshadow)
+document.attachEvent("onmouseout", updownshadow)
+}
+var ie=document.all
+var ns6=document.getElementById&&!document.all
+function ietruebody(){
+return (document.compatMode && document.compatMode!="BackCompat" && !window.opera)? document.documentElement : document.body
+}
+function enlarge(which, e, position, imgwidth, imgheight){
+if (ie||ns6){
+crossobj=document.getElementById? document.getElementById("showimage") : document.all.showimage
+if (position=="center"){
+pgyoffset=ns6? parseInt(pageYOffset) : parseInt(ietruebody().scrollTop)
+horzpos=ns6? pageXOffset+window.innerWidth/2-imgwidth/2 : ietruebody().scrollLeft+ietruebody().clientWidth/2-imgwidth/2
+vertpos=ns6? pgyoffset+window.innerHeight/2-imgheight/2 : pgyoffset+ietruebody().clientHeight/2-imgheight/2
+if (window.opera && window.innerHeight)
+vertpos=(pgyoffset+window.innerHeight/2-imgheight/2)+200
+vertpos=Math.max(pgyoffset, vertpos)
+}
+else{
+var horzpos=ns6? pageXOffset+e.clientX : ietruebody().scrollLeft+event.clientX
+var vertpos=ns6? pageYOffset+e.clientY : ietruebody().scrollTop+event.clientY
+}
+crossobj.style.left=horzpos+"px"
+crossobj.style.top=vertpos+"px"
+crossobj.innerHTML='<div align="right" id="dragbar"><span id="closetext" onClick="closepreview()" style="color:#9F0000">Закрыть [x]</span> </div><img src="'+which+'" onClick="closepreview()">'
+crossobj.style.visibility="visible"
+return false
+}
+else
+return true
+}
+function closepreview(){
+crossobj.style.visibility="hidden"
+}
+function drag_drop(e){
+if (ie&&dragapproved){
+crossobj.style.left=tempx+event.clientX-offsetx+"px"
+crossobj.style.top=tempy+event.clientY-offsety+"px"
+}
+else if (ns6&&dragapproved){
+crossobj.style.left=tempx+e.clientX-offsetx+"px"
+crossobj.style.top=tempy+e.clientY-offsety+"px"
+}
+return false
+}
+function initializedrag(e){
+if (ie&&event.srcElement.id=="dragbar"||ns6&&e.target.id=="dragbar"){
+offsetx=ie? event.clientX : e.clientX
+offsety=ie? event.clientY : e.clientY
+tempx=parseInt(crossobj.style.left)
+tempy=parseInt(crossobj.style.top)
+dragapproved=true
+document.onmousemove=drag_drop
+}}
+document.onmousedown=initializedrag
+document.onmouseup=new Function("dragapproved=false")
+</script>
+</head>
+<body>
+    <div class="gallery">
+<div class="gallery__section1">
+        <img src="./images/gallery2x (2).jpg" class="shadowcss" effect="popshadow" mousedowncolor="white" mouseupcolor="gray" width=320 height=320 onclick="return enlarge('./images/gallery2x (2).jpg',event,'top',500,600)">
+<img src="./images/gallery2x (3).jpg" class="shadowcss" effect="popshadow" mousedowncolor="white" mouseupcolor="gray" width=160 height=160  onclick="return enlarge('./images/gallery2x (3).jpg',event,'top',500,600)">
+<img src="./images/gallery2x (4) .jpg" class="shadowcss" effect="popshadow" mousedowncolor="white" mouseupcolor="gray" width=160 height=160  onclick="return enlarge('./images/gallery2x (4) .jpg',event,'top',500,600)">
+<img src="./images/gallery2x (5).jpg" class="shadowcss" effect="popshadow" mousedowncolor="white" mouseupcolor="gray" width=160 height=160  onclick="return enlarge('./images/gallery2x (5).jpg',event,'top',500,600)">
+    </div>
+    <div class="gallery__section2">
+<img src="./images/gallery2x (1).jpg" class="shadowcss" effect="popshadow" mousedowncolor="white" mouseupcolor="gray" width=160 height=160  onclick="return enlarge('./images/gallery2x (1).jpg',event,'top',500,600)">
+<img src="./images/gallery2x (10).jpg" class="shadowcss" effect="popshadow" mousedowncolor="white" mouseupcolor="gray" width=160 height=160  onclick="return enlarge('./images/gallery2x (10).jpg',event,'top',500,600)">
+    </div>
+<div class="gallery__section3">
+<img src="./images/gallery2x (6).jpg" class="shadowcss" effect="popshadow" mousedowncolor="white" mouseupcolor="gray" width=160 height=160  onclick="return enlarge('./images/gallery2x (6).jpg',event,'top',500,600)">
+<img src="./images/gallery2x (7).jpg" class="shadowcss" effect="popshadow" mousedowncolor="white" mouseupcolor="gray" width=160 height=160  onclick="return enlarge('./images/gallery2x (7).jpg',event,'top',500,600)">
+<img src="./images/gallery2x (8).jpg" class="shadowcss" effect="popshadow" mousedowncolor="white" mouseupcolor="gray" width=160 height=160  onclick="return enlarge('./images/gallery2x (8).jpg',event,'top',500,600)">
+<img src="./images/gallery2x (9).jpg" class="shadowcss gallery__image9" effect="popshadow" mousedowncolor="white" mouseupcolor="gray" width=320 height=320  onclick="return enlarge('./images/gallery2x (9).jpg',event,'top',500,600)">
+</div>
+    </div>
+    
+
+
+<DIV id=showimage></DIV>
+    
+</html>
